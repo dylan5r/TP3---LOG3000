@@ -59,4 +59,4 @@ On ne travaille jamais directement sur `main`. Chaque changement passe par une i
 1. Issue. Chaque bogue ou tâche est décrit dans une issue GitHub avec les étapes pour le reproduire. L'issue est assignée à un membre de l'équipe.
 2. Branche. On crée une branche pour chaque issue à partir de `main` à jour, avec `git checkout main`, `git pull` puis `git checkout -b fix/nom-du-bogue`. On utilise `fix/` pour un bogue et `docs/` pour de la documentation.
 3. Commits. Les messages de commit expliquent clairement ce qui a été changé et pourquoi.
-4. Pull request. On ouvre une pull request vers `main` et on écrit la description en liant a l'issue correspondant. Un autre membre relit le code et vérifie que les tests passent avant de fusionner.
+4. Pull request. On ouvre une pull request vers main et on lie l'issue correspondante dans la description. Un autre membre relit le code et vérifie que les tests passent avant de fusionner.
