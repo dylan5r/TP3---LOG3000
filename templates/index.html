@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+   Page de la calculatrice.
+   Flask remplit ce template avec la variable result envoyée par la fonction index() de app.py.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -37,11 +41,29 @@
 </div>
 
 <script>
+   /*
+      Ajoute un chiffre ou un opérateur à la fin de l'affichage.
+
+      Entrées
+         value (string) le caractère du bouton cliqué
+
+      Sortie
+         Aucune, l'affichage est modifié directement
+   */
    function appendToDisplay(value) {
       const display = document.getElementById('display');
       display.value += value;
    }
 
+   /*
+      Vide l'affichage quand on appuie sur C.
+
+      Entrées
+         Aucune
+
+      Sortie
+         Aucune, l'affichage est modifié directement
+   */
    function clearDisplay() {
       document.getElementById('display').value = '';
    }
