@@ -44,17 +44,39 @@ def calculate(expr: str):
     op_char = None
 
     # La calculatrice fait une seule opération à la fois, donc on refuse un deuxième opérateur
+    enum=enumerate(s)
+    listEnum=list(enum)
+    t=""
     for i, ch in enumerate(s):
+        t=str(ch)
         if ch in OPS:
-            if op_pos != -1:
-                raise ValueError("only one operator is allowed")
-            op_pos = i
-            op_char = ch
+            B=True
+            if ch=='-':
+                try:
+                    int(list(enumerate(s))[i+1][1])
+                    B=False
+                except ValueError:
+                    B=True
+                if B: 
+                    try:
+                        float(list(enumerate(s))[i+1][1])
+                        B=False
+                    except ValueError:
+                        B=True
+                        
+            else :
+                if op_pos != -1:
+                    raise ValueError("only one operator is allowed" + list(enumerate(s))[i+1][1])
+
+            if B:
+                op_pos = i
+                op_char = ch
+
 
     # Il faut au moins un caractère de chaque côté de l'opérateur
     if op_pos <= 0 or op_pos >= len(s) - 1:
-        raise ValueError("invalid expression format")
-
+        raise ValueError("invalid expression format"+t)
+    
     left = s[:op_pos]
     right = s[op_pos+1:]
 
