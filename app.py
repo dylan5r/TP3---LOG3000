@@ -4,7 +4,6 @@ Ce fichier crée l'application web. Il reçoit l'expression envoyée par la page
 fait le calcul avec les fonctions de operators.py et renvoie le résultat à la page.
 Pour lancer le serveur, il faut exécuter python app.py.
 """
-
 from flask import Flask, request, render_template
 from operators import add, subtract, multiply, divide
 
