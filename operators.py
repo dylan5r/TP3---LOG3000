@@ -51,4 +51,4 @@ def divide(a,b):
     Sortie
         float, le résultat de la division a / b
     """
-    return a // b
+    return a / b
