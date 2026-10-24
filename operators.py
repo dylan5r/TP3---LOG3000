@@ -39,7 +39,7 @@ def multiply(a,b):
     Sortie
         float, le produit a * b
     """
-    return a ** b
+    return a * b
 
 def divide(a,b):
     """Divise le premier nombre par le deuxième.
