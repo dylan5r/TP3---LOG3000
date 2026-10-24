@@ -51,10 +51,9 @@ def calculate(expr: str):
                 raise ValueError("only one operator is allowed")
             op_pos = i
             op_char = ch
-   
     # Il faut au moins un caractère de chaque côté de l'opérateur
     if op_pos <= 0 or op_pos >= len(s) - 1:
-        raise ValueError("invalid expression format"+t)
+        raise ValueError("invalid expression format")
     
     left = s[:op_pos]
     right = s[op_pos+1:]
