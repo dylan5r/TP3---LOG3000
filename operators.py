@@ -27,7 +27,7 @@ def subtract(a,b):
     Sortie
         float, la différence a - b
     """
-    return a - b
+    return b - a
 
 def multiply(a,b):
     """Multiplie deux nombres.
@@ -39,7 +39,7 @@ def multiply(a,b):
     Sortie
         float, le produit a * b
     """
-    return a * b
+    return a ** b
 
 def divide(a,b):
     """Divise le premier nombre par le deuxième.
@@ -51,4 +51,4 @@ def divide(a,b):
     Sortie
         float, le résultat de la division a / b
     """
-    return a // b
+    return a / b
