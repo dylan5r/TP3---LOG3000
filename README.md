@@ -14,7 +14,7 @@ Groupe 18
 
 C'est une calculatrice web faite en Python avec Flask. On entre une opération avec les boutons de la page, par exemple 8+2, et le serveur calcule le résultat avant de l'afficher.
 
-La calculatrice fait une seule opération à la fois entre deux nombres. Les opérations possibles sont l'addition, la soustraction, la multiplication et la division. Elle ne gère pas les calculs avec plusieurs opérateurs comme 2+3*4, les parenthèses ou les nombres négatifs.
+La calculatrice fait une seule opération à la fois entre deux nombres. Les opérations possibles sont l'addition, la soustraction, la multiplication et la division. Les nombres peuvent être négatifs ou décimaux. Elle ne gère pas les calculs avec plusieurs opérateurs comme 2+3*4 ni les parenthèses.
 
 L'objectif est d'avoir une calculatrice fiable et un projet bien organisé. Pour ça, on documente le code, on ajoute des tests et on corrige les bogues en suivant un processus clair avec des branches, des issues et des pull requests.
 
@@ -24,6 +24,7 @@ L'objectif est d'avoir une calculatrice fiable et un projet bien organisé. Pour
 - `operators.py` contient les fonctions des quatre opérations
 - `templates/` contient la page HTML de la calculatrice (voir [templates/README.md](templates/README.md))
 - `static/` contient le fichier CSS (voir [static/README.md](static/README.md))
+- `tests/` contient les tests automatiques (voir [tests/README.md](tests/README.md))
 
 ## Installation
 
@@ -41,13 +42,15 @@ Il faut avoir Python 3.9 ou plus récent, pip et Git.
 4. Appuyer sur = pour voir le résultat dans l'affichage
 5. Appuyer sur C pour vider l'affichage et commencer un nouveau calcul
 
+Le bouton . sert à écrire un nombre décimal. Pour un nombre négatif, on appuie sur - juste avant le nombre, par exemple 5*-3.
+
 Si le calcul n'est pas valide, par exemple 8+ ou 8+2+3, un message qui commence par Error s'affiche à la place du résultat.
 
 Pour arrêter le serveur, il faut faire Ctrl+C dans le terminal.
 
 ## Tests
 
-Les tests seront dans le dossier `tests/`.
+Les tests sont dans le dossier `tests/`.
 
 1. Installer pytest avec `python -m pip install pytest`
 2. À la racine du projet, lancer les tests avec `python -m pytest`
