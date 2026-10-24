@@ -98,14 +98,23 @@ def index():
         ou un affichage vide si c'est une requête GET
     """
     result = ""
+    equals_pressed = "false"
+
     if request.method == 'POST':
         expression = request.form.get('display', '')
         try:
             result = calculate(expression)
         except Exception as e:
-            # On affiche l'erreur dans la calculatrice au lieu de faire planter la page
             result = f"Error: {e}"
-    return render_template('index.html', result=result)
+
+        equals_pressed = "true"
+
+    return render_template(
+        'index.html',
+        result=result,
+        equals_pressed=equals_pressed
+    )
+
 
 if __name__ == '__main__':
     # debug=True recharge le serveur à chaque modification, c'est seulement pour le développement

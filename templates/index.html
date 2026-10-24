@@ -16,6 +16,9 @@
    <form method="POST">
       <input type="text" name="display" id="display" value="{{ result }}" readonly>
 
+      <input type="hidden" id="equals_pressed"
+           value="{{ equals_pressed }}">
+
       <div class="buttons">
          <button type="button" class="btn" onclick="appendToDisplay('1')">1</button>
          <button type="button" class="btn" onclick="appendToDisplay('02')">2</button>
@@ -53,9 +56,16 @@
          Aucune, l'affichage est modifié directement
    */
    function appendToDisplay(value) {
-      const display = document.getElementById('display');
-      display.value += value;
-   }
+    const display = document.getElementById('display');
+    const equalsPressed = document.getElementById('equals_pressed');
+
+    if (equalsPressed.value == 'true' && !isNaN(value)) {
+        clearDisplay();
+    }
+
+    display.value += value;
+    equalsPressed.value = 'false';
+}
 
    /*
       Vide l'affichage quand on appuie sur C.
