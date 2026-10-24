@@ -4,7 +4,6 @@ Ce fichier crée l'application web. Il reçoit l'expression envoyée par la page
 fait le calcul avec les fonctions de operators.py et renvoie le résultat à la page.
 Pour lancer le serveur, il faut exécuter python app.py.
 """
-
 from flask import Flask, request, render_template
 from operators import add, subtract, multiply, divide
 
@@ -46,13 +45,34 @@ def calculate(expr: str):
     # La calculatrice fait une seule opération à la fois, donc on refuse un deuxième opérateur
     for i, ch in enumerate(s):
         if ch in OPS:
-            if op_pos != -1:
-                raise ValueError("only one operator is allowed")
-            op_pos = i
-            op_char = ch
+            B=True
+            if ch=='-':
+                if i==0 or list(enumerate(s))[i-1][1] in OPS:
+                    try:
+                        int(list(enumerate(s))[i+1][1])
+                        B=False
+                    except ValueError:
+                        B=True
+                    if B: 
+                        try:
+                            float(list(enumerate(s))[i+1][1])
+                            B=False
+                        except ValueError:
+                            B=True
+
+            else :
+                if op_pos != -1:
+                    raise ValueError("only one operator is allowed")
+
+            if B:
+                op_pos = i
+                op_char = ch
+
+
     # Il faut au moins un caractère de chaque côté de l'opérateur
     if op_pos <= 0 or op_pos >= len(s) - 1:
         raise ValueError("invalid expression format")
+    
     left = s[:op_pos]
     right = s[op_pos+1:]
 
