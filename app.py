@@ -45,7 +45,6 @@ def calculate(expr: str):
 
     # La calculatrice fait une seule opération à la fois, donc on refuse un deuxième opérateur
     for i, ch in enumerate(s):
-        t=str(ch)
         if ch in OPS:
             if op_pos != -1:
                 raise ValueError("only one operator is allowed")
@@ -54,7 +53,6 @@ def calculate(expr: str):
     # Il faut au moins un caractère de chaque côté de l'opérateur
     if op_pos <= 0 or op_pos >= len(s) - 1:
         raise ValueError("invalid expression format")
-    
     left = s[:op_pos]
     right = s[op_pos+1:]
 
